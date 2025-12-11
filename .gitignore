@@ -1,0 +1,13 @@
+*~
+*.swp
+*.swo
+.DS_Store
+.idea/
+*.log
+.env
+.env.local
+home/.local/
+home/.cache/
+home/.Xauthority
+home/.zsh_history
+home/.bash_history
