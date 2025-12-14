@@ -2,16 +2,44 @@
 
 A curated collection of configuration files optimized for Linux with Hyprland window manager.
 
+> **Note**: This configuration includes optional [HyDE](HYDE.md) integration for advanced theming, but works perfectly fine without it.
+
 ## Features
 
-- **Hyprland** - Tiling window manager configuration
+- **Hyprland** - Tiling window manager configuration with multiple workflows
 - **Kitty** - GPU-based terminal emulator
-- **Vim** - Text editor configuration
-- **Waybar** - Wayland bar for Hyprland
+- **Vim** - Text editor with dynamic color scheme
+- **Waybar** - Wayland status bar for Hyprland
+- **Multiple Themes** - Animation presets, color schemes, and workflows
+- **Modular Design** - Easy to customize individual components
 
-## Installation
+## Quick Start
 
-### Quick Install
+### Prerequisites
+
+**Minimum required packages:**
+```bash
+# Arch/Manjaro
+sudo pacman -S hyprland hyprlock kitty waybar rofi
+
+# Debian/Ubuntu
+sudo apt install hyprland kitty waybar rofi
+
+# Fedora
+sudo dnf install hyprland kitty waybar rofi
+```
+
+**Recommended packages:**
+```bash
+# Additional utilities
+sudo pacman -S swww grim slurp brightnessctl playerctl hyprpicker
+```
+
+**Optional**: For full theme and automation features, see [HyDE Integration](HYDE.md)
+
+### Installation
+
+#### Quick Install (5 minutes)
 
 ```bash
 git clone https://github.com/yourusername/arch-dotfiles.git
@@ -20,168 +48,203 @@ chmod +x install.sh
 ./install.sh
 ```
 
-### Manual Install
-
-Copy files from `home/` to your home directory:
+#### Advanced Install (Recommended)
 
 ```bash
-cp -r home/.config/* ~/.config/
-cp -r home/.zshrc ~/
+git clone https://github.com/yourusername/arch-dotfiles.git
+cd arch-dotfiles
+chmod +x Builder
+./Builder
 ```
+
+The Builder script will:
+- ✅ Detect your distro automatically
+- ✅ Check for required dependencies
+- ✅ Create timestamped backups
+- ✅ Copy configs to your home directory
+- ✅ Generate detailed logs
+
+### After Installation
+
+1. **Configure your monitors** (required):
+   ```bash
+   vim ~/.config/hypr/monitors.conf
+   # See file for examples, or use: monitor=,preferred,auto,1
+   ```
+
+2. **Reload Hyprland**: Press `Super + Shift + R`
+
+3. **Test keybindings**: Press `Super + /` for keybinding hints
+
+## Documentation
+
+- 📖 **[Installation Guide](INSTALLATION.md)** - Detailed setup instructions for all distros
+- 📁 **[Structure](STRUCTURE.md)** - Directory layout and file organization
+- 🎨 **[HyDE Integration](HYDE.md)** - Optional theming framework (advanced features)
+- 🔧 **[Troubleshooting](TROUBLESHOOTING.md)** - Solutions to common problems
 
 ## Distro Compatibility
 
-### ✅ Works On
-
+### ✅ Fully Supported
 - **Arch Linux** - Full support (all scripts work perfectly)
-- **Arch-based** - Manjaro, EndeavourOS, ArcoLinux, etc. (full support)
-- **Debian/Ubuntu** - Config files work; manually install dependencies
-- **Fedora/RHEL** - Config files work; manually install dependencies
-- **openSUSE** - Config files work; manually install dependencies
+- **Manjaro, EndeavourOS, ArcoLinux** - Full support
+- **Debian/Ubuntu** - Config files work; install dependencies manually
+- **Fedora** - Config files work; install dependencies manually
+- **openSUSE** - Config files work; install dependencies manually
 
-### ⚠️ Important Notes
+> **Note**: The configuration files are universal and work on any Linux distro with Hyprland. Installation scripts are optimized for Arch but work everywhere with manual dependency installation.
 
-**The configuration files themselves are universal** - they work on any Linux distro that has Hyprland installed.
+## Key Features
 
-**The installation scripts are optimized for Arch** but will work on other distros:
+### 🎯 Workflows
+Switch between optimized profiles:
+- **Default** - Balanced performance and aesthetics
+- **Gaming** - Maximum performance, minimal effects
+- **Editing** - Color-accurate, reduced blur
+- **Snappy** - Fast and responsive
+- **Powersaver** - Battery-friendly
 
-#### For Arch-based systems:
-```bash
-./Builder  # Everything works automatically
-```
+*Change in* `~/.config/hypr/workflows.conf`
 
-#### For Debian/Ubuntu:
-```bash
-./install.sh  # Copies files successfully
-sudo apt install hyprland hyprlock kitty waybar zsh
-# Then reload your shell
-```
+### 🎨 Animations
+Choose from 15+ animation presets:
+- Minimal, Dynamic, High, Fast, and more
+- Easy switching with animation selector
 
-#### For Fedora:
-```bash
-./install.sh  # Copies files successfully
-sudo dnf install hyprland hyprlock kitty waybar zsh
-# Then reload your shell
-```
+*Change in* `~/.config/hypr/animations.conf`
 
-#### For openSUSE:
-```bash
-./install.sh  # Copies files successfully
-sudo zypper install hyprland hyprlock kitty waybar zsh
-# Then reload your shell
-```
+### 🔒 Hyprlock Themes
+Multiple lock screen layouts:
+- HyDE default, Anurati, SF Pro, IBM Plex, Greetd, and more
 
-The `Builder` script will auto-detect your package manager and suggest the correct install command.
+*Change in* `~/.config/hypr/hyprlock.conf`
 
-## Structure
+### ⌨️ Keybindings
+Comprehensive and organized keybindings:
+- Window management (Super + Arrow keys)
+- Workspace navigation (Super + 1-0)
+- App launcher (Super + A)
+- Quick actions (screenshots, brightness, volume)
+
+*View all:* Press `Super + /` or see `~/.config/hypr/keybindings.conf`
+
+## Directory Structure
 
 ```
 arch-dotfiles/
-├── home/                      # Files to install to home directory
+├── home/
 │   ├── .config/
-│   │   ├── hypr/             # Hyprland config
-│   │   ├── kitty/            # Kitty terminal config
-│   │   ├── vim/              # Vim configuration
-│   │   └── waybar/           # Waybar status bar config
-│   └── .zshrc                # Zsh shell configuration
-├── install.sh                # Installation script
-└── LICENSE                   # License
+│   │   ├── hypr/          # Hyprland configuration
+│   │   ├── kitty/         # Terminal config
+│   │   ├── vim/           # Vim config
+│   │   └── waybar/        # Status bar config
+│   └── .zshrc             # Shell configuration
+├── install.sh             # Simple installer
+├── Builder                # Advanced installer
+├── README.md              # This file
+├── INSTALLATION.md        # Detailed install guide
+├── STRUCTURE.md           # File organization
+├── HYDE.md                # HyDE integration info
+├── TROUBLESHOOTING.md     # Problem solutions
+└── LICENSE                # MIT License
 ```
-
-## Dependencies
-
-### Required
-- `hyprland` - Wayland compositor
-- `hyprlock` - Screen lock utility
-- `kitty` - Terminal emulator
-- `waybar` - Status bar
-
-### Optional
-- `vim` - Text editor
-- `zsh` - Shell
-- `pyprland` - Hyprland helper
-
-### Install on Your Distro
-
-**Arch:**
-```bash
-sudo pacman -S hyprland hyprlock kitty waybar vim zsh
-```
-
-**Debian/Ubuntu:**
-```bash
-sudo apt install hyprland hyprlock kitty waybar vim zsh
-```
-
-**Fedora:**
-```bash
-sudo dnf install hyprland hyprlock kitty waybar vim zsh
-```
-
-**openSUSE:**
-```bash
-sudo zypper install hyprland hyprlock kitty waybar vim zsh
-```
-
-## Configuration
-
-### Hyprland
-
-Main config: `home/.config/hypr/hyprland.conf`
-
-Includes:
-- `keybindings.conf` - Keyboard shortcuts
-- `monitors.conf` - Display setup
-- `windowrules.conf` - Window management rules
-- `animations.conf` - Animation presets
-- `themes/` - Color themes
-- `workflows/` - Workflow profiles (gaming, editing, etc.)
-- `hyprlock/` - Screen lock themes
-
-### Kitty
-
-Terminal configuration: `home/.config/kitty/`
-
-### Waybar
-
-Status bar: `home/.config/waybar/`
-
-### Vim
-
-Text editor: `home/.config/vim/`
 
 ## Customization
 
-Edit the configuration files directly in `home/.config/` before installing, or modify them in your home directory after installation.
+### Quick Customizations
 
-## Workflows
+**Change colors:**
+```bash
+vim ~/.config/hypr/themes/user-theme.conf
+```
 
-Hyprland includes predefined workflows:
-- `default` - Standard setup
-- `gaming` - Optimized for gaming
-- `editing` - Development/editing
-- `snappy` - Fast and minimal
-- `powersaver` - Power efficiency
+**Modify keybindings:**
+```bash
+vim ~/.config/hypr/keybindings.conf
+```
 
-Switch workflows by editing the active profile in `hyprland.conf`.
+**Switch workflows:**
+```bash
+vim ~/.config/hypr/workflows.conf
+# Change the source line to your preferred workflow
+```
+
+**Configure monitors:**
+```bash
+vim ~/.config/hypr/monitors.conf
+# See file for many examples
+```
+
+## Usage Without HyDE
+
+This configuration is designed to work standalone **without HyDE**. You'll get:
+
+✅ Full Hyprland window management  
+✅ All keybindings and shortcuts  
+✅ Static themes and colors  
+✅ Waybar status bar  
+✅ Multiple workflows and animations  
+
+Some features require manual setup without HyDE:
+- Dynamic color generation (use static colors)
+- Automatic theme switching (use manual config)
+- Advanced wallpaper management (use swww directly)
+
+**See [HYDE.md](HYDE.md) for detailed comparison and alternatives.**
 
 ## Troubleshooting
 
-### Configs not applying
-1. Reload Hyprland: `Super + Shift + R`
-2. Check for syntax errors: `hyprctl openergodebug`
+Having issues? Check our [Troubleshooting Guide](TROUBLESHOOTING.md) for:
 
-### Missing dependencies
-Check which distro you're on and install using the commands above.
+- Installation problems
+- Display configuration issues  
+- Keybinding conflicts
+- Performance optimization
+- Theme and color problems
 
-### Package manager not found
-The `Builder` script will suggest the correct install command for your distro. If it doesn't recognize your distro, manually install the packages listed above.
+**Quick fixes:**
+```bash
+# Reload Hyprland config
+hyprctl reload
 
-## License
+# Check your monitors
+hyprctl monitors
 
-See LICENSE file
+# View configuration status
+hyprctl getoption general
+```
+
+## Contributing
+
+Contributions are welcome! Please:
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## Screenshots
+
+*Coming soon - add your screenshots here!*
 
 ## Credits
 
-Based on best practices from the Hyprland community. Universal distro support added for broader compatibility.
+- Based on best practices from the Hyprland community
+- Animation presets from various contributors
+- HyDE integration compatibility
+- Special thanks to all contributors
 
+## License
+
+MIT License - See [LICENSE](LICENSE) file for details
+
+## Support
+
+- 📖 [Hyprland Wiki](https://wiki.hyprland.org)
+- 💬 [Hyprland Discord](https://discord.gg/hyprland)
+- 🐛 [Report Issues](https://github.com/yourusername/arch-dotfiles/issues)
+
+---
+
+**Happy ricing!** 🎨
