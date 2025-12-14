@@ -58,11 +58,11 @@ chmod +x Builder
 ```
 
 The Builder script will:
-- ✅ Detect your distro automatically
-- ✅ Check for required dependencies
-- ✅ Create timestamped backups
-- ✅ Copy configs to your home directory
-- ✅ Generate detailed logs
+- Detect your distro automatically
+-  Check for required dependencies
+-  Create timestamped backups
+-  Copy configs to your home directory
+-  Generate detailed logs
 
 ### After Installation
 
@@ -78,14 +78,14 @@ The Builder script will:
 
 ## Documentation
 
-- 📖 **[Installation Guide](INSTALLATION.md)** - Detailed setup instructions for all distros
-- 📁 **[Structure](STRUCTURE.md)** - Directory layout and file organization
-- 🎨 **[HyDE Integration](HYDE.md)** - Optional theming framework (advanced features)
-- 🔧 **[Troubleshooting](TROUBLESHOOTING.md)** - Solutions to common problems
+-  **[Installation Guide](INSTALLATION.md)** - Detailed setup instructions for all distros
+-  **[Structure](STRUCTURE.md)** - Directory layout and file organization
+-  **[HyDE Integration](HYDE.md)** - Optional theming framework (advanced features)
+-  **[Troubleshooting](TROUBLESHOOTING.md)** - Solutions to common problems
 
 ## Distro Compatibility
 
-### ✅ Fully Supported
+###  Fully Supported
 - **Arch Linux** - Full support (all scripts work perfectly)
 - **Manjaro, EndeavourOS, ArcoLinux** - Full support
 - **Debian/Ubuntu** - Config files work; install dependencies manually
@@ -96,7 +96,7 @@ The Builder script will:
 
 ## Key Features
 
-### 🎯 Workflows
+###  Workflows
 Switch between optimized profiles:
 - **Default** - Balanced performance and aesthetics
 - **Gaming** - Maximum performance, minimal effects
@@ -106,20 +106,20 @@ Switch between optimized profiles:
 
 *Change in* `~/.config/hypr/workflows.conf`
 
-### 🎨 Animations
+###  Animations
 Choose from 15+ animation presets:
 - Minimal, Dynamic, High, Fast, and more
 - Easy switching with animation selector
 
 *Change in* `~/.config/hypr/animations.conf`
 
-### 🔒 Hyprlock Themes
+###  Hyprlock Themes
 Multiple lock screen layouts:
 - HyDE default, Anurati, SF Pro, IBM Plex, Greetd, and more
 
 *Change in* `~/.config/hypr/hyprlock.conf`
 
-### ⌨️ Keybindings
+###  Keybindings
 Comprehensive and organized keybindings:
 - Window management (Super + Arrow keys)
 - Workspace navigation (Super + 1-0)
@@ -179,11 +179,11 @@ vim ~/.config/hypr/monitors.conf
 
 This configuration is designed to work standalone **without HyDE**. You'll get:
 
-✅ Full Hyprland window management  
-✅ All keybindings and shortcuts  
-✅ Static themes and colors  
-✅ Waybar status bar  
-✅ Multiple workflows and animations  
+ Full Hyprland window management  
+ All keybindings and shortcuts  
+ Static themes and colors  
+ Waybar status bar  
+ Multiple workflows and animations  
 
 Some features require manual setup without HyDE:
 - Dynamic color generation (use static colors)
@@ -241,10 +241,10 @@ MIT License - See [LICENSE](LICENSE) file for details
 
 ## Support
 
-- 📖 [Hyprland Wiki](https://wiki.hyprland.org)
-- 💬 [Hyprland Discord](https://discord.gg/hyprland)
-- 🐛 [Report Issues](https://github.com/yourusername/arch-dotfiles/issues)
+-  [Hyprland Wiki](https://wiki.hyprland.org)
+-  [Hyprland Discord](https://discord.gg/hyprland)
+-  [Report Issues](https://github.com/yourusername/arch-dotfiles/issues)
 
 ---
 
-**Happy ricing!** 🎨
+**Happy ricing!** 
